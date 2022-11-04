@@ -3,7 +3,7 @@
 
 Name:           {{{ git_dir_name }}}
 Version:        {{{ git_dir_version lead=0.1 follow=19 }}}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Load BCM43430A1 firmware on boot 
 
 License:        BSD-3
@@ -21,11 +21,14 @@ Requires:       rpi-udev-rules
 
 Source:         {{{ git_dir_pack }}}
 
+Patch0:         pi-bluetooth-use-btattach.patch
+
 %description
 Load BCM43430A1 firmware on boot through systemd
 
 %prep
 {{{ git_dir_setup_macro }}}
+%autopatch -p1
 
 %build
 # Nothing to build
@@ -67,5 +70,8 @@ install -m 0644 lib/udev/rules.d/90-pi-bluetooth.rules %{buildroot}%{_prefix}/li
 %{_prefix}/lib/udev/rules.d/90-pi-bluetooth.rules
 
 %changelog
+* Fri Nov 04 2022 Luca Magrone <luca@magrone.cc> - 0.1.19-2
+- Patch btuart
+
 * Fri Nov 04 2022 Luca Magrone <luca@magrone.cc> - 0.1.19-1
 - Initial package
