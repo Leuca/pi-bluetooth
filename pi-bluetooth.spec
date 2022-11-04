@@ -17,6 +17,7 @@ BuildRequires:  systemd-rpm-macros
 Requires:       bluez
 Requires:       bluez-deprecated
 Requires:       bluez-firmware
+Requires:       rpi-udev-rules
 
 Source:         {{{ git_dir_pack }}}
 
