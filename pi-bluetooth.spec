@@ -15,6 +15,7 @@ ExclusiveArch:  aarch64 %{arm}
 BuildRequires:  systemd-rpm-macros
 
 Requires:       bluez
+Requires:       bluez-deprecated
 Requires:       bluez-firmware
 
 Source:         {{{ git_dir_pack }}}
